@@ -1,0 +1,27 @@
+syntax="proto3";
+
+option java_multiple_files=true;
+
+package com.dev.shiv;
+
+message Book{
+  int32 bookId=1;
+  string name=2;
+  string title=3;
+  int32 pages=4;
+  float price=5;
+}
+
+service BookService{
+  //unary - synchronous
+  //client will send one request and server will respond with one response.
+  rpc getBook(Book) returns(Book){}
+
+  //sever streaming - Asynchronous
+  //client will send one request and server will send stream of response to the client.
+  rpc getBooksByName(Book) returns(stream Book){}
+
+  //client streaming - Asynchronous
+  //client will stream of request and server will respond with one response.
+  rpc getExpensiveBook(stream Book) returns(Book){}
+}
