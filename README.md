@@ -1,4 +1,16 @@
-# grpc-microservice-spring-boot
+# grpc-microservice-spring-boot - Activity 1
+
+**In grpc-microservices we have 2 microservices**
+- grpc-service.
+- client-service.
+- We have used as a model Book in proto file.
+
+
+**In these microservices i'm trying to integrate build 3 things**
+- Synchronous call with single request and single response.
+- Asynchronous call with single request and stream of response.
+- Asynchronous call with single stream of request and single response.
+
 # Create openssl certificate for localhost
 
 //Generate CA's private key <br>
@@ -19,9 +31,12 @@ openssl x509 -req -in localhost.csr -CA localhost.cert.pem -CAkey ca.key.pem -CA
 //convert server private key in PKCS8 standard(gRPc expects)<br>
 openssl pkcs8 -topk8 -nocrypt -in localhost.key -out localhost.pem
 
-# Demo with live screenshots
+### Demo with live screenshots
 
 ![image](https://github.com/DevShivmohan/microservices-with-grpc-spring-boot/assets/72655528/4220d438-3295-4838-9336-7b28feef4027)
 ![image](https://github.com/DevShivmohan/microservices-with-grpc-spring-boot/assets/72655528/43825d6f-8d2b-4af6-891c-2015715e488d)
 
 
+# Apache kafka with consumer and producer model - Activity 2
+
+- For installation and configurations please [click here](https://github.com/DevShivmohan/Learning-everything/issues/36#issuecomment-1680416910)
