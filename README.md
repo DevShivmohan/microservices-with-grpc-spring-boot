@@ -9,7 +9,7 @@
 **In these microservices i'm trying to integrate build 3 things**
 - Synchronous call with single request and single response.
 - Asynchronous call with single request and stream of response.
-- Asynchronous call with single stream of request and single response.
+- Asynchronous call with stream of request and single response.
 
 # Create openssl certificate for localhost
 
