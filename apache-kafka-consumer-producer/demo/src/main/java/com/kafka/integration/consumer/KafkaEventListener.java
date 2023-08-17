@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class KafkaEventListener {
 
     /**
-     * Receive the messages
+     * Receive the messages and for now simply print here
      * @param message
      */
     @KafkaListener(topics = "${kafka.topic}")
