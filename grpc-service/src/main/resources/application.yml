@@ -3,7 +3,7 @@ grpc:
     port: 9000
     security:
       enabled: true
-      certificate-chain: file:"/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.crt"
-#      certificate-chain: file:/home/shiv/Desktop/localhost.crt
-      private-key: file:'/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.pem'
-#      private-key: file:/home/shiv/Desktop/localhost.pem
+#      certificate-chain: file:"/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.crt"
+      certificate-chain: file:/home/shiv/Desktop/localhost.crt
+#      private-key: file:'/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.pem'
+      private-key: file:/home/shiv/Desktop/localhost.pem

@@ -34,4 +34,9 @@ public class BookController {
     public ResponseEntity<?> getExpensiveBook() throws InterruptedException {
         return bookClientService.getExpensiveBook();
     }
+
+    @GetMapping("all")
+    public ResponseEntity<?> getBooks() throws InterruptedException {
+        return bookClientService.getBooks();
+    }
 }

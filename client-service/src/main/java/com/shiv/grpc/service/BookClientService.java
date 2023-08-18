@@ -100,4 +100,36 @@ public class BookClientService {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(countDownLatch.await(1,TimeUnit.MINUTES) ? response :Collections.emptyMap());
     }
+
+    /**
+     * Bidirectional communication, stream of request and stream of response
+     * @return
+     * @throws InterruptedException
+     */
+    public ResponseEntity<?> getBooks() throws InterruptedException {
+        List<Map<Descriptors.FieldDescriptor,Object>> response=new ArrayList<>();
+        CountDownLatch countDownLatch=new CountDownLatch(1);
+        StreamObserver<Book> streamObserver= bookServiceStub.getBooks(new StreamObserver<Book>() {
+            @Override
+            public void onNext(Book value) {
+                response.add(value.getAllFields());
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                countDownLatch.countDown();
+            }
+
+            @Override
+            public void onCompleted() {
+                countDownLatch.countDown();
+            }
+        });
+        StaticDatabase
+                .getBooks()
+                .forEach(streamObserver::onNext);
+        streamObserver.onCompleted();
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(countDownLatch.await(1,TimeUnit.MINUTES) ? response : Collections.emptyList());
+    }
 }

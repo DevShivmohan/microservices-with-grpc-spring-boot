@@ -24,4 +24,6 @@ service BookService{
   //client streaming - Asynchronous
   //client will stream of request and server will respond with one response.
   rpc getExpensiveBook(stream Book) returns(Book){}
+
+  rpc getBooks(stream Book) returns(stream Book){}
 }
