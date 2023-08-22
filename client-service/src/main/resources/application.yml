@@ -5,4 +5,4 @@ grpc:
       negotiationType: TLS
       security:
 #        trust-cert-collection: file:"/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/client-service/certs/localhost.cert.pem"
-        trust-cert-collection: file:/home/shiv/Desktop/localhost.cert.pem
+        trust-cert-collection: classpath:/certs/localhost.cert.pem

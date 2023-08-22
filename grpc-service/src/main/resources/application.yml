@@ -4,6 +4,6 @@ grpc:
     security:
       enabled: true
 #      certificate-chain: file:"/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.crt"
-      certificate-chain: file:/home/shiv/Desktop/localhost.crt
+      certificate-chain: classpath:/certs/localhost.crt
 #      private-key: file:'/home/shiv/Samta deck/final-assesment/grpc-microservice-spring-boot-dev/grpc-service/certs/localhost.pem'
-      private-key: file:/home/shiv/Desktop/localhost.pem
+      private-key: classpath:/certs/localhost.pem
