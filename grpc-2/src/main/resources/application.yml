@@ -1,6 +1,6 @@
 grpc:
   server:
-    port: 8090
+    port: 8091
     security:
       enabled: true
       certificate-chain: classpath:/certs/localhost.crt

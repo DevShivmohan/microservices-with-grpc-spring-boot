@@ -107,6 +107,7 @@ public class BookClientService {
      * @throws InterruptedException
      */
     public ResponseEntity<?> getBooks() throws InterruptedException {
+        System.out.println("Hey **");
         List<Map<Descriptors.FieldDescriptor,Object>> response=new ArrayList<>();
         CountDownLatch countDownLatch=new CountDownLatch(1);
         StreamObserver<Book> streamObserver= bookServiceStub.getBooks(new StreamObserver<Book>() {
@@ -129,6 +130,8 @@ public class BookClientService {
                 .getBooks()
                 .forEach(streamObserver::onNext);
         streamObserver.onCompleted();
+
+        System.out.println("Hey end**");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(countDownLatch.await(1,TimeUnit.MINUTES) ? response : Collections.emptyList());
     }

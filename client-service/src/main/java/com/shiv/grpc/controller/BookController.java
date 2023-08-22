@@ -1,7 +1,5 @@
 package com.shiv.grpc.controller;
 
-import com.dev.shiv.Book;
-import com.google.protobuf.Descriptors;
 import com.shiv.grpc.service.BookClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -9,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("book")
