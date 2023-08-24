@@ -19,6 +19,7 @@ public class BookServerService extends BookServiceGrpc.BookServiceImplBase {
      */
     @Override
     public void getBook(Book book, StreamObserver<Book> responseObserver) {
+        System.out.println("Service grpc-service invoked");
         StaticDatabase.getBooks()
                 .stream()
                 .filter(book1 -> book1.getBookId() == book.getBookId())
@@ -35,6 +36,7 @@ public class BookServerService extends BookServiceGrpc.BookServiceImplBase {
      */
     @Override
     public void getBooksByName(Book book, StreamObserver<Book> responseObserver) {
+        System.out.println("Service grpc-service invoked");
         StaticDatabase.getBooks()
                 .stream()
                 .filter(book1 -> book1.getName().equalsIgnoreCase(book.getName()))
@@ -50,6 +52,7 @@ public class BookServerService extends BookServiceGrpc.BookServiceImplBase {
      */
     @Override
     public StreamObserver<Book> getExpensiveBook(StreamObserver<Book> responseObserver) {
+        System.out.println("Service grpc-service invoked");
         return new StreamObserver<Book>() {
             Book comparisonBook = null;
             float price = 0;
@@ -82,6 +85,7 @@ public class BookServerService extends BookServiceGrpc.BookServiceImplBase {
      */
     @Override
     public StreamObserver<Book> getBooks(StreamObserver<Book> responseObserver) {
+        System.out.println("Service grpc-service invoked");
         return new StreamObserver<Book>() {
             final List<Book> books=new ArrayList<>();
             @Override

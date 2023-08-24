@@ -16,7 +16,6 @@ public class BookController {
 
     @GetMapping("id/{bookId}")
     public ResponseEntity<?> getBook(@PathVariable("bookId") int bookId){
-        System.out.println("Id-"+bookId);
         return bookClientService.getBook(bookId);
     }
 
