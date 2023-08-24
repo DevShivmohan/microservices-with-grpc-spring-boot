@@ -2,6 +2,4 @@ grpc:
   client:
     dev-shiv-service:
       address: static://localhost:80 # This static address of nginx server
-      negotiationType: TLS
-      security:
-        trust-cert-collection: classpath:/certs/localhost.cert.pem
+      negotiationType: PLAINTEXT
