@@ -8,6 +8,7 @@
         <module>grpc-service</module>
         <module>proto</module>
         <module>grpc-2</module>
+        <module>apache-kafka-consumer-producer/demo</module>
     </modules>
     <groupId>com.dev.shiv</groupId>
     <artifactId>spring-boot-grpc</artifactId>
