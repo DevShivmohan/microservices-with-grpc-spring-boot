@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +39,12 @@ public class BookClientService {
         System.out.println("end bookId");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(book.getAllFields());
+    }
+
+    @PostConstruct
+    public void onStartup(){
+        System.out.println(getBook(7));
+        System.out.println("Hello done");
     }
 
     /**

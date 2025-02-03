@@ -40,3 +40,16 @@ openssl pkcs8 -topk8 -nocrypt -in localhost.key -out localhost.pem
 # Apache kafka with consumer and producer model - Activity 2
 
 - For installation and configurations please [click here](https://github.com/DevShivmohan/Learning-everything/issues/36#issuecomment-1680416910)
+
+## For mTLS open ssl cert generation below command
+
+openssl req -new -x509 -days 365 -keyout ca.key -out ca.crt -subj "/CN=MyRootCA"
+openssl req -new -keyout server.key -out server.csr -subj "/CN=grpc-server"
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt
+openssl req -new -keyout client.key -out client.csr -subj "/CN=grpc-client"
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in server.key -out server-pkcs8.key
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in client.key -out server-pkcs8.key
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in server.key -out server-pkcs8.key
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in client.key -out client-pkcs8.key
+2021  openssl verify -CAfile ca.crt server.crt

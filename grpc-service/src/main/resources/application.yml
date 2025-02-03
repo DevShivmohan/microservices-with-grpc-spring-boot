@@ -1,7 +1,9 @@
 grpc:
   server:
-    port: 8090
+    port: 9090
     security:
       enabled: true
-      certificate-chain: classpath:/certs/localhost.crt
-      private-key: classpath:/certs/localhost.pem
+      certificate-chain: "classpath:certs/server.crt"
+      private-key: "classpath:certs/server-pkcs8.key"
+      trust-cert-collection: "classpath:certs/ca.crt"
+      client-auth: REQUIRE
